@@ -54,3 +54,8 @@ else if (method === 'PUT' && parsedUrl.pathname.startsWith('/api/items/')) {
         res.end(JSON.stringify({ message: `PUT request - Updating item ${itemId}`, data: updatedItem }));
     });
 }
+else if (method === 'DELETE' && parsedUrl.pathname.startsWith('/api/items/')) {
+    const itemId = parsedUrl.pathname.split('/').pop();
+    res.statusCode = 200;
+    res.end(JSON.stringify({ message: `DELETE request - Deleting item ${itemId}` }));
+}
