@@ -41,3 +41,16 @@ else if (method === 'POST' && parsedUrl.pathname === '/api/items') {
         res.end(JSON.stringify({ message: 'POST request - Adding new item', data: newItem }));
     });
 }
+else if (method === 'PUT' && parsedUrl.pathname.startsWith('/api/items/')) {
+    let body = '';
+    const itemId = parsedUrl.pathname.split('/').pop();
+
+    req.on('data', chunk => {
+        body += chunk.toString();
+    });
+    req.on('end', () => {
+        const updatedItem = JSON.parse(body);
+        res.statusCode = 200;
+        res.end(JSON.stringify({ message: `PUT request - Updating item ${itemId}`, data: updatedItem }));
+    });
+}
