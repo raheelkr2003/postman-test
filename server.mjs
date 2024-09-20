@@ -15,3 +15,7 @@ else if (parsedUrl.pathname === '/about') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('This is the About Page.');
 }
+else if (parsedUrl.pathname === '/contact') {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Contact us at contact@example.com.');
+}
