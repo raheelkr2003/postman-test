@@ -26,3 +26,7 @@ else {
 else if (parsedUrl.pathname.startsWith('/api')) {
     res.setHeader('Content-Type', 'application/json');
 }
+if (method === 'GET' && parsedUrl.pathname === '/api/items') {
+    res.statusCode = 200;
+    res.end(JSON.stringify({ message: 'GET request - Fetching all items' }));
+}
