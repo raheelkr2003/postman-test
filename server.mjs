@@ -23,3 +23,6 @@ else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('404 Not Found');
 }
+else if (parsedUrl.pathname.startsWith('/api')) {
+    res.setHeader('Content-Type', 'application/json');
+}
