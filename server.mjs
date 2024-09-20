@@ -19,3 +19,7 @@ else if (parsedUrl.pathname === '/contact') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Contact us at contact@example.com.');
 }
+else {
+    res.writeHead(404, { 'Content-Type': 'text/plain' });
+    res.end('404 Not Found');
+}
